@@ -1,0 +1,13 @@
+version: 1.0
+service_name: andres-alps
+
+stages:
+  - name: run-python-container
+    when:
+      - pull_request
+      - push
+      - cli: build_container
+    image: python:3
+    compute_size: small
+    commands: 
+      - echo "it works!"
